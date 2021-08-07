@@ -1,0 +1,191 @@
+@import './variables';
+@import './large-desktops';
+@import './large-laptops';
+@import './medium-landscape';
+@import './medium-portrait';
+@import './small-landscape';
+@import './small-portrait';
+@import './specific-devices';
+
+@mixin flexRow {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+@mixin flexColumn {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+
+}
+
+body {
+  margin: 0;
+  font: 16px Sans-Serif;
+}
+
+#navBar {
+    @include flexRow;
+    justify-content: space-between;
+    background-color: $navBarBgColor;
+    align-content: center;
+    height: 6rem;
+    z-index: 42;
+}
+
+#navMenu {
+    display: flex;
+    align-items: center;
+
+
+}
+
+
+.activeMenuOption {
+    color: $activeMenuColor;
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.menuOption {
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.menuOption:hover { cursor: pointer; }
+
+#logo:hover { cursor: pointer; }
+
+/* Footer */
+.footer {
+    background-image: url('../images/footerBg.png');
+    @include flexRow;
+    color: $footerFontColor;
+    padding: 4rem;
+    font-weight: 400;
+}
+
+.footerCompanyName { color: $footerCaptionColor; margin-bottom: 1rem; }
+
+
+/*  Need a project */
+
+#querySection {
+
+    @include flexColumn;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+}
+
+#letsTalkBtn {
+    background-image: url('../images/testimonailBg.png');
+    border: none;
+    color: $btnTxtColor;
+}
+
+
+  /* about me */
+
+  .txtContentColor { color: $contentTxtColor; }
+
+#aboutMeRow {
+    @include flexRow;
+    z-index: 40;
+}
+
+#aboutMeLeft { background-color: white; }
+.aboutMeContent {
+    font-weight: 400;
+}
+
+#aboutMeRight {  background-image: url('../images/bg.png'); }
+
+.aboutMeImg { position: absolute; }
+
+.aboutMeImg { margin-top: 4rem; }
+
+#aboutMeCaption { margin-bottom: 1rem; }
+
+
+/* overlay with testimonials */
+#overlayImg {
+
+    background-image: url('../images/overlay.png');
+    @include flexColumn;
+    justify-content: center;
+    align-items: center;
+    z-index: 40;
+}
+
+
+#overlayTxtSection {
+
+    color: $overlayTxtColor;
+    text-align: center;
+    font-weight: 400;
+
+}
+.boldTxt {  font-weight: 400; }
+
+.headerTxtColor { color: $overlayHeaderTxtColor; }
+
+#testimonialSection {
+    background-image: url('../images/testimonailBg.png');
+    width: 100%;
+    @include flexRow;
+    align-content: center;
+    color: $testimonialSectionColor;
+    position: absolute;
+    z-index: 41;
+}
+
+.testimonialComponent { @include flexRow; }
+
+
+  /* STICKY HEADER ON SCROLL */
+  .navBar {
+    transition: 100ms;
+    padding: 25px;
+  }
+
+  .sticky-nav{
+    transition: 100ms;
+    padding: 20px;
+  }
+
+  #navBar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+  }
+
+  /* have to add the ID nav (#nav) otherwise the backgrnd color won't change as the previous background color is set in an ID and ID trumps class notation */
+  #navBar.sticky{
+    transition: 150ms;
+    box-shadow: 0px 15px 10px -15px #111;
+    background-color:  white;
+    }
+

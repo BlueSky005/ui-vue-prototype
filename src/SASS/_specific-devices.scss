@@ -1,0 +1,54 @@
+
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 568px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  #overlayTxtSection { margin-top: 1rem; }
+
+  #logo { margin-left: 1rem; }
+
+  #overlayImg { height: 11rem; }
+
+  .testimonialComponent {
+    margin-left: 13%;
+  }
+
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    #overlayTxtSection { margin-top: 4rem; }
+
+    #overlayImg { height: 13rem; }
+
+    .testimonialComponent {
+      margin-left: 20%;
+    }
+
+}
+
+
+/* ----------- NEXUS 7 ----------- */
+
+@media only screen and (min-width : 600px) and (max-width : 603px) and (orientation: portrait) {
+
+  #logo { margin-left: 2rem; }
+
+  #overlayImg { height: 20rem; }
+}
+
+  @media only screen and (min-width : 600px) and (max-width : 603px) and (orientation: landscape) {
+    #overlayImg { height: 20rem; }
+  }
+
