@@ -11,13 +11,24 @@
     </div>
 
     <div id="navMenu">
-      <span class="menuOption" v-scroll-to="{ el: '#navBar' }">HOME</span>
       <span
-        class="menuOption activeMenuOption"
+        :class="homeMenuStatus ? 'menuOption activeMenuOption' : 'menuOption'"
+        v-scroll-to="{ el: '#navBar' }"
+        @click="homeClicked"
+        >HOME</span
+      >
+      <span
+        :class="aboutMenuStatus ? 'menuOption activeMenuOption' : 'menuOption'"
         v-scroll-to="{ el: '#aboutMeRow' }"
+        @click="aboutClicked"
         >ABOUT</span
       >
-      <span class="menuOption" v-scroll-to="{ el: '#querySection' }"
+      <span
+        :class="
+          contactMenuStatus ? 'menuOption activeMenuOption' : 'menuOption'
+        "
+        v-scroll-to="{ el: '#querySection' }"
+        @click="contactClicked"
         >CONTACT</span
       >
     </div>
@@ -31,7 +42,10 @@ export default {
   data() {
     return {
       image: logo,
-      active: false
+      active: false,
+      homeMenuStatus: true,
+      aboutMenuStatus: false,
+      contactMenuStatus: false
     };
   },
 
@@ -42,6 +56,24 @@ export default {
       } else {
         return "sticky-nav";
       }
+    },
+
+    homeClicked() {
+      this.homeMenuStatus = true;
+      this.aboutMenuStatus = false;
+      this.contactMenuStatus = false;
+    },
+
+    aboutClicked() {
+      this.aboutMenuStatus = true;
+      this.homeMenuStatus = false;
+      this.contactMenuStatus = false;
+    },
+
+    contactClicked() {
+      this.aboutMenuStatus = false;
+      this.homeMenuStatus = false;
+      this.contactMenuStatus = true;
     }
   },
   mounted() {
